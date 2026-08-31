@@ -34,8 +34,8 @@ All three forms (main inquiry, newsletter, footer newsletter) submit to **Netlif
 
 ## Known gaps / follow-ups
 
-1. **The Resonant Voice logo** (`assets/rv-logo-placeholder.svg`) is a text placeholder — swap in the real illustrated mark (navy/gold profile silhouette) once it's uploaded.
-2. **Photography credit** to Marsha N. Wilson Photography is implemented as a CSS `:hover` reveal on the four portrait photos (hero, about, organizations, contact) — confirm licensing before publishing further uses.
-3. **Fonts** load from Google Fonts CDN; self-host for production if desired.
-4. **Credly badge** (`data-share-badge-id="18f192da-e929-456e-abf8-68cf2a5063df"`) embed script loads at the end of `js/main.js`'s `DOMContentLoaded`, after the target div exists in the DOM — confirm the badge ID is still current.
-5. The 13 testimonials in `index.html` and the carousel data are copied verbatim from the design handoff's `testimonialsData` array — don't rewrite this copy.
+1. **Photography credit** to Marsha N. Wilson Photography is implemented as a CSS `:hover` reveal on the four portrait photos (hero, about, organizations, contact) — confirm licensing before publishing further uses.
+2. **Fonts** load from Google Fonts CDN; self-host for production if desired.
+3. **Credly badge** (`data-share-badge-id="18f192da-e929-456e-abf8-68cf2a5063df"`) embed script loads at the end of `js/main.js`'s `DOMContentLoaded`, after the target div exists in the DOM — confirm the badge ID is still current.
+4. The 13 testimonials in `index.html` and the carousel data are copied verbatim from the design handoff's `testimonialsData` array — don't rewrite this copy.
+5. **`assets/rv-logo.png`** (the real Resonant Voice mark) has an opaque black background baked into the export rather than transparency — it reads fine as a dark badge on both the white hero panel and the charcoal one-sheet headers, but if a transparent version becomes available, swap it in for a cleaner look.
