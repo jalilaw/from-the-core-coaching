@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Resonant Voice™ — One Sheet</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Cinzel:wght@400;500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --charcoal: #2d2d2d;
+  --rose: #a46161;
+  --blush: #cebfb8;
+  --teal: #507076;
+  --warm-white: #f8f8f8;
+  --white: #ffffff;
+  --text: #2d2d2d;
+  --text-light: #888;
+}
+
+@media print {
+  body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .no-print { display: none; }
+  .page { box-shadow: none; page-break-after: always; }
+  @page { size: letter; margin: 0; }
+}
+
+body { font-family: 'Jost', sans-serif; background: var(--warm-white); color: var(--text); font-size: 10px; line-height: 1.5; }
+@media screen { body { padding: 1rem 0; background: #e8e4df; } }
+@media print { body { background: white; padding: 0; } }
+
+.page { max-width: 850px; margin: 0 auto 1.5rem; background: var(--white); box-shadow: 0 4px 40px rgba(0,0,0,0.08); overflow: hidden; }
+@media print { .page { max-width: 100%; margin-bottom: 0; } }
+
+.rv-header { background: var(--charcoal); display: flex; align-items: stretch; border-bottom: 3px solid var(--teal); position: relative; overflow: hidden; }
+.rv-header::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 20% 60%, rgba(164,97,97,0.1) 0%, transparent 60%); pointer-events: none; }
+.rv-header-left { flex: 1; padding: 0.35in 0.4in 0.3in; display: flex; flex-direction: column; justify-content: space-between; position: relative; }
+.rv-header-logo { height: 46px; width: auto; display: block; margin-bottom: 0.15in; position: relative; }
+.rv-header-meta { display: flex; flex-direction: column; gap: 4px; position: relative; }
+.rv-header-label { font-family: 'Cinzel', serif; font-size: 7px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--rose); }
+.rv-header-name { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 300; color: var(--white); line-height: 1.1; }
+.rv-header-cred { font-family: 'Jost', sans-serif; font-size: 8px; font-weight: 300; letter-spacing: 0.12em; color: rgba(255,255,255,0.4); margin-top: 3px; }
+.rv-header-tag { font-family: 'Cinzel', serif; font-size: 6.5px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(80,112,118,0.8); margin-top: 6px; }
+.rv-header-photo { width: 1.6in; object-fit: cover; object-position: center top; display: block; flex-shrink: 0; border-left: 3px solid var(--teal); }
+
+.rv-pull-quote { background: var(--rose); padding: 10px 0.4in; display: flex; align-items: center; gap: 12px; }
+.rv-pull-quote-bar { width: 2px; height: 30px; background: rgba(255,255,255,0.4); flex-shrink: 0; }
+.rv-pull-quote-text { font-family: 'Cormorant Garamond', serif; font-size: 11.5px; font-style: italic; color: rgba(255,255,255,0.92); line-height: 1.4; }
+
+.rv-body { padding: 0.3in 0.4in; }
+.rv-sec { font-family: 'Cinzel', serif; font-size: 6.5px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--rose); display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+.rv-sec::after { content: ''; flex: 1; height: 1px; background: linear-gradient(to right, rgba(80,112,118,0.4), transparent); }
+
+.rv-framework-text { font-size: 10px; font-weight: 300; line-height: 1.8; color: #777; padding-bottom: 0.15in; border-bottom: 1px solid rgba(80,112,118,0.18); margin-bottom: 0.2in; }
+
+.rv-pillars-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(161,143,128,0.12); border: 1px solid rgba(161,143,128,0.12); }
+.rv-pillar { background: var(--charcoal); padding: 14px 13px; border-top: 2px solid rgba(80,112,118,0.35); }
+.rv-pillar-num { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 300; color: rgba(164,97,97,0.15); line-height: 1; margin-bottom: 5px; }
+.rv-pillar-label { font-family: 'Cinzel', serif; font-size: 6px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--rose); display: block; margin-bottom: 4px; }
+.rv-pillar-title { font-family: 'Cormorant Garamond', serif; font-size: 12px; font-style: italic; color: var(--white); margin-bottom: 5px; line-height: 1.25; }
+.rv-pillar-desc { font-size: 8.5px; font-weight: 300; color: rgba(255,255,255,0.42); line-height: 1.6; }
+
+.rv-footer-bar { background: var(--charcoal); padding: 10px 0.4in; display: flex; align-items: center; justify-content: space-between; border-top: 2px solid var(--teal); }
+.rv-footer-bar-label { font-family: 'Cinzel', serif; font-size: 6px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.3); }
+.rv-footer-bar-num { font-family: 'Cormorant Garamond', serif; font-size: 10px; font-style: italic; color: rgba(255,255,255,0.25); }
+
+/* Page 2 */
+.work-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px; }
+.work-item { padding: 9px 11px; border: 1px solid rgba(161,143,128,0.2); border-top: 2px solid var(--teal); }
+.work-kicker { font-family: 'Cinzel', serif; font-size: 5.5px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--rose); display: block; margin-bottom: 3px; }
+.work-title { font-family: 'Cormorant Garamond', serif; font-size: 12px; font-weight: 400; color: var(--text); margin-bottom: 3px; line-height: 1.15; }
+.work-desc { font-size: 7.8px; font-weight: 300; color: #777; line-height: 1.5; margin-bottom: 4px; }
+.work-list { list-style: none; display: flex; flex-direction: column; gap: 1px; margin: 0 0 4px; }
+.work-list li { font-size: 8px; font-weight: 300; color: #777; display: flex; align-items: baseline; gap: 5px; }
+.work-list li span { color: rgba(80,112,118,0.5); font-size: 7px; }
+.work-item a { font-family: 'Cinzel', serif; font-size: 5.5px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--teal); text-decoration: none; }
+
+.rv-testi-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 12px; }
+.rv-testi { padding: 8px 10px; background: var(--warm-white); border-left: 2px solid var(--teal); }
+.rv-testi-text { font-family: 'Cormorant Garamond', serif; font-size: 9px; font-style: italic; color: var(--text); line-height: 1.45; margin-bottom: 4px; }
+.rv-testi-name { font-family: 'Cinzel', serif; font-size: 5.5px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--rose); }
+.rv-testi-role { font-size: 7px; font-weight: 300; color: #777; margin-top: 2px; }
+
+.bio-strip { padding: 8px 12px; background: var(--warm-white); border-top: 2px solid var(--teal); }
+.bio-name { font-family: 'Cormorant Garamond', serif; font-size: 12px; font-weight: 300; color: var(--text); margin-bottom: 3px; }
+.bio-creds { display: flex; flex-wrap: wrap; gap: 2px 12px; margin-bottom: 3px; }
+.bio-cred { font-size: 7.5px; font-weight: 300; color: #777; display: flex; align-items: center; gap: 4px; }
+.bio-cred span { color: var(--rose); font-size: 4px; }
+.bio-text { font-size: 7.8px; font-weight: 300; color: #777; line-height: 1.5; }
+
+.rv-cta-bar { background: var(--charcoal); padding: 10px 0.4in; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 20px; border-top: 2px solid var(--teal); position: relative; overflow: hidden; }
+.rv-cta-bar-bg { position: absolute; inset: 0; background: url('assets/logo-lockup.png') right center/100px no-repeat; opacity: 0.04; }
+.rv-cta-headline { font-family: 'Cormorant Garamond', serif; font-size: 14px; font-weight: 300; color: var(--white); line-height: 1.3; position: relative; }
+.rv-cta-headline em { font-style: italic; color: var(--blush); }
+.rv-cta-links { text-align: right; position: relative; }
+.rv-cta-links a { display: block; font-size: 8px; font-weight: 300; color: rgba(255,255,255,0.42); text-decoration: none; margin-bottom: 3px; }
+.rv-cta-btn { display: inline-block; margin-top: 7px; padding: 6px 16px; background: var(--rose); color: var(--white); font-family: 'Cinzel', serif; font-size: 6px; letter-spacing: 0.18em; text-transform: uppercase; text-decoration: none; }
+
+.print-btn { display: block; margin: 1.5rem auto; padding: 0.7rem 2rem; background: transparent; border: 1px solid rgba(161,143,128,0.4); color: var(--text-light); font-family: 'Cinzel', serif; font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; cursor: pointer; transition: all 0.3s; }
+.print-btn:hover { border-color: var(--rose); color: var(--rose); }
+@media print { .print-btn { display: none; } }
+
+@media (max-width: 700px) {
+  .rv-header { flex-direction: column; }
+  .rv-header-photo { width: 100%; height: 220px; border-left: none; border-top: 3px solid var(--teal); }
+  .rv-pillars-grid, .work-grid, .rv-testi-grid { grid-template-columns: 1fr; }
+  .rv-cta-bar { grid-template-columns: 1fr; text-align: left; }
+  .rv-cta-links { text-align: left; }
+}
+</style>
+</head>
+<body>
+
+<!-- PAGE 1 -->
+<div class="page">
+  <div class="rv-header">
+    <div class="rv-header-left">
+      <img class="rv-header-logo" src="assets/rv-logo-placeholder.svg" alt="The Resonant Voice" style="filter: brightness(0) invert(1);">
+      <div class="rv-header-meta">
+        <span class="rv-header-label">Presented by</span>
+        <div class="rv-header-name">Jayme Alilaw</div>
+        <div class="rv-header-cred">Vocal Performance Artist &nbsp;·&nbsp; ICF-Trained Executive Coach &nbsp;·&nbsp; Army Veteran</div>
+        <div class="rv-header-tag">Where authenticity becomes leadership</div>
+      </div>
+    </div>
+    <img class="rv-header-photo" src="assets/hero-portrait.jpg" alt="Jayme Alilaw">
+  </div>
+
+  <div class="rv-pull-quote">
+    <div class="rv-pull-quote-bar"></div>
+    <div class="rv-pull-quote-text">"When Jayme speaks, rooms don't just listen. They remember who they are."</div>
+  </div>
+
+  <div class="rv-body">
+    <div class="rv-sec">The Framework</div>
+    <div class="rv-framework-text">
+      The Resonant Voice™ is not a methodology imposed from the outside. It is an excavation process — uncovering the voice, leadership, and life that have always been yours. Most leaders have spent years performing competence instead of inhabiting it. This framework strips away the performance and recovers what was always underneath: a sovereign, embodied way of leading that does not shrink for any room.<br><br>
+      Delivered through keynotes, workshops, executive coaching, and The Resonant Life Workbook, The Resonant Voice™ has guided executives, artists, and senior leaders across industries to lead from wholeness rather than wound.
+    </div>
+
+    <div class="rv-sec">Three Pillars</div>
+    <div class="rv-pillars-grid">
+      <div class="rv-pillar">
+        <div class="rv-pillar-num">01</div>
+        <span class="rv-pillar-label">Pillar One</span>
+        <div class="rv-pillar-title">The Authentic Voice</div>
+        <div class="rv-pillar-desc">Discovering and claiming the voice beneath the performance — the one that has never needed permission to exist. This is where real leadership begins.</div>
+      </div>
+      <div class="rv-pillar">
+        <div class="rv-pillar-num">02</div>
+        <span class="rv-pillar-label">Pillar Two</span>
+        <div class="rv-pillar-title">The Empowered Voice</div>
+        <div class="rv-pillar-desc">Building the internal infrastructure to speak, lead, and decide from sovereignty — in the boardroom, in negotiation, and in life. Authority that doesn't depend on external validation.</div>
+      </div>
+      <div class="rv-pillar">
+        <div class="rv-pillar-num">03</div>
+        <span class="rv-pillar-label">Pillar Three</span>
+        <div class="rv-pillar-title">Embodied Voice as Sovereignty</div>
+        <div class="rv-pillar-desc">Integrating voice, identity, and leadership into a coherent, embodied way of being. The extraordinary results available when you stop suppressing your most sovereign voice.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="rv-footer-bar">
+    <span class="rv-footer-bar-label">The Resonant Voice™ &nbsp;·&nbsp; From The Core Coaching &nbsp;·&nbsp; Jayme Alilaw</span>
+    <span class="rv-footer-bar-num">1 of 2</span>
+  </div>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page">
+  <div class="rv-header">
+    <div class="rv-header-left">
+      <img class="rv-header-logo" src="assets/rv-logo-placeholder.svg" alt="The Resonant Voice" style="filter: brightness(0) invert(1);">
+      <div class="rv-header-meta">
+        <span class="rv-header-label">Presented by</span>
+        <div class="rv-header-name">Jayme Alilaw</div>
+        <div class="rv-header-cred">Vocal Performance Artist &nbsp;·&nbsp; ICF-Trained Executive Coach &nbsp;·&nbsp; Army Veteran</div>
+        <div class="rv-header-tag">Where authenticity becomes leadership</div>
+      </div>
+    </div>
+    <img class="rv-header-photo" src="assets/about-portrait.jpg" alt="Jayme Alilaw">
+  </div>
+
+  <div class="rv-body" style="padding:0.18in 0.4in 0.1in;">
+    <div class="rv-sec">How We Work Together</div>
+    <div class="work-grid">
+      <div class="work-item">
+        <span class="work-kicker">Keynote Speaking</span>
+        <div class="work-title">Stop Performing. Start Leading.</div>
+        <div class="work-desc">A transformational keynote giving audiences a visceral experience of what becomes possible when they stop performing and start leading from wholeness.</div>
+        <ul class="work-list">
+          <li><span>—</span>Customized to your event theme</li>
+          <li><span>—</span>45–60 minutes + optional Q&amp;A</li>
+          <li><span>—</span>Conferences, summits, ERGs, C-suite</li>
+          <li><span>—</span>DEI and women's leadership stages</li>
+        </ul>
+        <a href="mailto:coaching@jayme-alilaw.com">Inquire About Speaking →</a>
+      </div>
+      <div class="work-item">
+        <span class="work-kicker">Workshops &amp; Training</span>
+        <div class="work-title">Authentic, Empowered, Embodied.</div>
+        <div class="work-desc">The Resonant Voice™ as a custom workshop — designed around your organization's specific culture, goals, and people.</div>
+        <ul class="work-list">
+          <li><span>—</span>Half-day and full-day formats</li>
+          <li><span>—</span>Team facilitation available</li>
+          <li><span>—</span>Retreat and multi-session series</li>
+          <li><span>—</span>Includes The Resonant Life Workbook</li>
+        </ul>
+        <a href="mailto:coaching@jayme-alilaw.com">Inquire About Workshops →</a>
+      </div>
+      <div class="work-item">
+        <span class="work-kicker">1:1 Executive Coaching</span>
+        <div class="work-title">Lead from the Inside Out.</div>
+        <div class="work-desc">Private coaching using The Resonant Voice™ framework. For senior leaders ready to stop performing their authority and start inhabiting it.</div>
+        <ul class="work-list">
+          <li><span>—</span>Weekly 60-minute private sessions</li>
+          <li><span>—</span>Customized leadership strategy</li>
+          <li><span>—</span>Values &amp; identity clarification</li>
+          <li><span>—</span>Executive presence development</li>
+        </ul>
+        <a href="https://calendly.com/jaymealilaw/chemistry-session">Schedule a Chemistry Session →</a>
+      </div>
+      <div class="work-item">
+        <span class="work-kicker">The Resonant Life Workbook</span>
+        <div class="work-title">Authentic · Empowered · Embodied.</div>
+        <div class="work-desc">A guided self-discovery workbook built on The Resonant Voice™ framework — for individuals and teams doing the deeper work between sessions.</div>
+        <ul class="work-list">
+          <li><span>—</span>Three-part workbook structure</li>
+          <li><span>—</span>Aligned with all three pillars</li>
+          <li><span>—</span>Available standalone or as companion</li>
+          <li><span>—</span>Used in workshops and coaching</li>
+        </ul>
+        <a href="mailto:coaching@jayme-alilaw.com">Inquire →</a>
+      </div>
+    </div>
+
+    <div class="rv-sec">What People Say</div>
+    <div class="rv-testi-grid">
+      <div class="rv-testi">
+        <div class="rv-testi-text">"Raw, funny, disruptive. I really didn't know if I was laughing or crying. Speaking truth to power — that's the only way I can describe it."</div>
+        <div class="rv-testi-name">Jasmine Jackson</div>
+        <div class="rv-testi-role">Intersectionality Conference · Kennesaw State University</div>
+      </div>
+      <div class="rv-testi">
+        <div class="rv-testi-text">"Jayme's speaking brought up a lot for me, helping me reflect on hard truths about myself, and I found it more effective than most therapy sessions I've had."</div>
+        <div class="rv-testi-name">Emily Little</div>
+        <div class="rv-testi-role">The Resonant Voice™ · Workshop Participant</div>
+      </div>
+      <div class="rv-testi">
+        <div class="rv-testi-text">"Jayme helped me focus in on my own knowing and struck the perfect balance between affirming me and bringing my attention to my unhelpful stories. You can feel that you are in the presence of a powerful woman in full appreciation of herself and her gifts."</div>
+        <div class="rv-testi-name">Anna Larsen</div>
+        <div class="rv-testi-role">Sales &amp; Operations Management · 1:1 Coaching Client</div>
+      </div>
+      <div class="rv-testi">
+        <div class="rv-testi-text">"Jayme is an exceptional coach and person. Through her coaching, I have seen so many breakthroughs professionally and personally. She is a voice of truth in a complex and changing world."</div>
+        <div class="rv-testi-name">Scott Paviol, MD</div>
+        <div class="rv-testi-role">Board Certified Dermatologist · Piedmont Healthcare</div>
+      </div>
+    </div>
+
+    <div class="bio-strip">
+      <div class="bio-name">Jayme Alilaw</div>
+      <div class="bio-creds">
+        <div class="bio-cred"><span>◆</span>20+ Years Vocal Performance</div>
+        <div class="bio-cred"><span>◆</span>ICF-Trained Executive Coach</div>
+        <div class="bio-cred"><span>◆</span>U.S. Army Veteran</div>
+        <div class="bio-cred"><span>◆</span>Atlanta Opera Resident Artist</div>
+        <div class="bio-cred"><span>◆</span>PCC Certification In Progress</div>
+      </div>
+      <div class="bio-text">Drawing on 20+ years as a professional opera singer, a career coaching senior leaders, entrepreneurs, and creatives, and a lifelong practice of embodied self-knowledge, Jayme speaks and coaches to the cost of suppressing your most sovereign voice — and the extraordinary results that become available when you stop.</div>
+    </div>
+  </div>
+
+  <div class="rv-cta-bar">
+    <div class="rv-cta-bar-bg"></div>
+    <div class="rv-cta-headline">You always knew.<br><em>Now it's time to act like it.</em></div>
+    <div class="rv-cta-links">
+      <a href="mailto:coaching@jayme-alilaw.com">coaching@jayme-alilaw.com</a>
+      <a href="https://www.fromthecorecoaching.com">fromthecorecoaching.com</a>
+      <a href="https://calendly.com/jaymealilaw/chemistry-session" class="rv-cta-btn">Schedule a Chemistry Session</a>
+    </div>
+  </div>
+</div>
+
+<button class="print-btn no-print" onclick="window.print()">Download / Print One Sheet</button>
+
+</body>
+</html>

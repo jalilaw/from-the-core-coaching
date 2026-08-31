@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Soul Chart Session — From The Core Coaching</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Cinzel:wght@400;500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --charcoal: #2d2d2d;
+      --rose: #a46161;
+      --taupe: #a18f80;
+      --blush: #cebfb8;
+      --teal: #507076;
+      --warm-white: #f8f8f8;
+      --white: #ffffff;
+      --text: #2d2d2d;
+      --text-light: #888;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Jost', sans-serif; background: var(--warm-white); color: var(--text); overflow-x: hidden; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.2rem 4rem;
+      background: rgba(248,248,248,0.93);
+      backdrop-filter: blur(14px);
+      border-bottom: 2px solid var(--teal);
+    }
+    .nav-logo img { height: 40px; width: auto; }
+    .nav-back {
+      font-family: 'Cinzel', serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      text-decoration: none;
+      display: flex; align-items: center; gap: 0.5rem;
+      transition: color 0.3s;
+    }
+    .nav-back:hover { color: var(--rose); }
+    .nav-back-arrow { color: var(--teal); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 52% 48%;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-photo {
+      position: relative; overflow: hidden; background: var(--white);
+    }
+    .hero-photo-img {
+      width: 100%; height: 100%;
+      object-fit: contain; object-position: center center;
+      display: block; background: #ffffff;
+    }
+    .hero-content {
+      background: var(--charcoal);
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 9rem 4.5rem 6rem 4rem;
+      position: relative; overflow: hidden;
+    }
+    .hero-content::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 65% 25%, rgba(164,97,97,0.12) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .hero-watermark {
+      position: absolute; bottom: -3rem; right: -3rem;
+      width: 240px; opacity: 0.04; pointer-events: none;
+    }
+    .hero-soul-logo {
+      width: 420px; margin-bottom: 2rem;
+      opacity: 0; animation: fadeUp 0.9s 0.2s forwards;
+    }
+    .hero-soul-logo svg { width: 100%; height: auto; }
+    .hero-eyebrow {
+      font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.32em;
+      text-transform: uppercase; color: var(--rose); margin-bottom: 1.2rem;
+      opacity: 0; animation: fadeUp 0.9s 0.35s forwards;
+    }
+    .hero-headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.4rem, 3.8vw, 4rem);
+      font-weight: 300; line-height: 1.1; color: var(--white); margin-bottom: 1.5rem;
+      opacity: 0; animation: fadeUp 0.9s 0.5s forwards;
+    }
+    .hero-headline em { font-style: italic; color: var(--blush); }
+    .hero-sub {
+      font-size: 0.95rem; font-weight: 300; line-height: 1.85;
+      color: rgba(255,255,255,0.48); max-width: 380px; margin-bottom: 2.5rem;
+      opacity: 0; animation: fadeUp 0.9s 0.65s forwards;
+    }
+    .hero-meta {
+      display: flex; gap: 1.5rem; margin-bottom: 2.5rem;
+      opacity: 0; animation: fadeUp 0.9s 0.75s forwards;
+    }
+    .hero-meta-item {
+      text-align: center;
+      padding: 0.8rem 1.2rem;
+      border: 1px solid rgba(80,112,118,0.35);
+    }
+    .hero-meta-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem; font-weight: 300; color: var(--blush); display: block;
+    }
+    .hero-meta-label {
+      font-family: 'Cinzel', serif; font-size: 0.52rem;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: rgba(255,255,255,0.3); margin-top: 0.2rem; display: block;
+    }
+    .hero-cta {
+      display: inline-block; padding: 1rem 2.8rem;
+      border: 1px solid var(--rose); color: var(--rose);
+      font-family: 'Cinzel', serif; font-size: 0.68rem; letter-spacing: 0.25em;
+      text-transform: uppercase; text-decoration: none;
+      transition: all 0.4s; opacity: 0; animation: fadeUp 0.9s 0.85s forwards;
+      align-self: flex-start; position: relative; overflow: hidden; z-index: 1;
+    }
+    .hero-cta::before {
+      content: ''; position: absolute; inset: 0; background: var(--rose);
+      transform: translateX(-101%); transition: transform 0.4s ease; z-index: -1;
+    }
+    .hero-cta:hover { color: var(--white); }
+    .hero-cta:hover::before { transform: translateX(0); }
+
+    /* ── SHARED ── */
+    section { padding: 7rem 0; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 4rem; }
+    .section-label {
+      font-family: 'Cinzel', serif; font-size: 0.63rem; letter-spacing: 0.35em;
+      text-transform: uppercase; color: var(--rose); display: block; margin-bottom: 1.4rem;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.9rem, 3vw, 3rem); font-weight: 300; line-height: 1.18; color: var(--text);
+    }
+    .section-title em { font-style: italic; color: var(--rose); }
+    .divider {
+      display: flex; align-items: center; gap: 1rem; margin: 2rem 0;
+    }
+    .divider span { flex: 1; height: 1px; background: linear-gradient(to right, rgba(80,112,118,0.4), transparent); }
+    .divider i { font-style: normal; color: var(--teal); font-size: 0.65rem; }
+
+    /* ── WHAT IT IS ── */
+    .what { background: var(--white); }
+    .what-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 5rem; align-items: start; margin-top: 3rem; }
+    .what-text { font-size: 1rem; font-weight: 300; line-height: 1.9; color: var(--text-light); }
+    .what-text p + p { margin-top: 1rem; }
+    .what-card {
+      background: var(--charcoal); padding: 3rem;
+      border-top: 3px solid var(--teal); position: relative;
+    }
+    .what-card-label {
+      font-family: 'Cinzel', serif; font-size: 0.55rem; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--rose); display: block; margin-bottom: 1rem;
+    }
+    .what-card-quote {
+      font-family: 'Cormorant Garamond', serif; font-size: 1.3rem;
+      font-style: italic; color: var(--white); line-height: 1.55; margin-bottom: 1.2rem;
+    }
+    .what-card-attr {
+      font-family: 'Cinzel', serif; font-size: 0.5rem; letter-spacing: 0.2em;
+      text-transform: uppercase; color: rgba(255,255,255,0.3);
+    }
+
+    /* ── SESSION ARC ── */
+    .arc { background: var(--warm-white); }
+    .arc-grid {
+      display: grid; grid-template-columns: repeat(5, 1fr);
+      gap: 1px; background: rgba(161,143,128,0.12);
+      border: 1px solid rgba(161,143,128,0.12); margin-top: 3rem;
+    }
+    .arc-step {
+      background: var(--white); padding: 2rem 1.5rem;
+      border-top: 2px solid rgba(80,112,118,0.25);
+      transition: border-color 0.3s, background 0.3s;
+    }
+    .arc-step:hover { border-top-color: var(--teal); background: rgba(80,112,118,0.03); }
+    .arc-num {
+      font-family: 'Cormorant Garamond', serif; font-size: 3rem;
+      font-weight: 300; color: rgba(164,97,97,0.12); line-height: 1; margin-bottom: 0.8rem;
+    }
+    .arc-name {
+      font-family: 'Cinzel', serif; font-size: 0.55rem; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--teal); display: block; margin-bottom: 0.5rem;
+    }
+    .arc-desc { font-size: 0.85rem; font-weight: 300; color: var(--text-light); line-height: 1.7; }
+
+    /* ── WHO IT'S FOR ── */
+    .for-section { background: var(--white); }
+    .for-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 3rem; }
+    .for-item {
+      padding: 2rem; background: var(--warm-white);
+      border-left: 3px solid var(--teal); transition: background 0.3s;
+    }
+    .for-item:hover { background: rgba(80,112,118,0.04); }
+    .for-item strong {
+      display: block; font-family: 'Cinzel', serif; font-size: 0.6rem;
+      letter-spacing: 0.18em; text-transform: uppercase; color: var(--charcoal);
+      font-weight: 400; margin-bottom: 0.5rem;
+    }
+    .for-item p { font-size: 0.9rem; font-weight: 300; color: var(--text-light); line-height: 1.75; }
+
+    /* ── ORGANIZATIONS ── */
+    .org-note-wrap { margin-top: 3rem; }
+    .org-note {
+      background: var(--charcoal);
+      padding: 2rem 2.5rem;
+      display: flex; align-items: flex-start; gap: 1.5rem;
+      border-left: 4px solid var(--teal);
+    }
+    .org-note-icon { font-size: 1.4rem; color: var(--teal); flex-shrink: 0; margin-top: 2px; }
+    .org-note-label {
+      font-family: 'Cinzel', serif; font-size: 0.58rem; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--teal); display: block; margin-bottom: 0.5rem;
+    }
+    .org-note-text { font-size: 0.9rem; font-weight: 300; color: rgba(255,255,255,0.6); line-height: 1.8; }
+
+    /* ── TESTIMONIAL ── */
+    .testi-section { background: var(--charcoal); }
+    .testi-section .section-title { color: var(--white); }
+    .testi-card {
+      margin-top: 3rem; padding: 3rem;
+      border: 1px solid rgba(206,191,184,0.15);
+      border-left: 4px solid var(--rose); position: relative;
+    }
+    .testi-card::before {
+      content: '\201C';
+      position: absolute; top: 1rem; left: 2rem;
+      font-family: 'Cormorant Garamond', serif; font-size: 5rem;
+      color: rgba(164,97,97,0.12); line-height: 1;
+    }
+    .testi-text {
+      font-family: 'Cormorant Garamond', serif; font-size: 1.4rem;
+      font-style: italic; font-weight: 300; color: var(--white);
+      line-height: 1.65; padding-top: 1rem; margin-bottom: 1.5rem;
+    }
+    .testi-author {
+      font-family: 'Cinzel', serif; font-size: 0.62rem;
+      letter-spacing: 0.22em; text-transform: uppercase; color: var(--rose);
+    }
+    .testi-role { font-size: 0.82rem; font-weight: 300; color: rgba(255,255,255,0.35); margin-top: 0.3rem; }
+
+    /* ── DETAILS ── */
+    .details { background: var(--warm-white); }
+    .details-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(161,143,128,0.15); margin-top: 3rem; border: 1px solid rgba(161,143,128,0.15); }
+    .detail { background: var(--white); padding: 2.5rem; text-align: center; }
+    .detail-label {
+      font-family: 'Cinzel', serif; font-size: 0.55rem; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--rose); display: block; margin-bottom: 0.5rem;
+    }
+    .detail-value {
+      font-family: 'Cormorant Garamond', serif; font-size: 1.5rem;
+      font-weight: 300; color: var(--charcoal);
+    }
+
+    /* ── CTA ── */
+    .cta-section { background: var(--rose); text-align: center; padding: 7rem 0; position: relative; overflow: hidden; }
+    .cta-section::before {
+      content: ''; position: absolute; inset: 0;
+      background: url("assets/logo-lockup.png") center/280px no-repeat; opacity: 0.07;
+    }
+    .cta-section .section-label { color: rgba(255,255,255,0.55); }
+    .cta-title {
+      font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 3.5vw, 3.5rem);
+      font-weight: 300; color: var(--white); margin: 1rem 0 1.5rem; line-height: 1.2;
+    }
+    .cta-title em { font-style: italic; color: rgba(255,255,255,0.7); }
+    .cta-sub { font-size: 1rem; font-weight: 300; line-height: 1.85; color: rgba(255,255,255,0.65); max-width: 460px; margin: 0 auto 2.5rem; }
+    .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn-white {
+      display: inline-block; padding: 1rem 2.8rem; background: var(--white);
+      color: var(--rose); font-family: 'Cinzel', serif; font-size: 0.68rem;
+      letter-spacing: 0.22em; text-transform: uppercase; text-decoration: none; transition: all 0.3s;
+    }
+    .btn-white:hover { background: var(--charcoal); color: var(--white); }
+    .btn-outline-white {
+      display: inline-block; padding: 1rem 2.8rem;
+      border: 1px solid rgba(255,255,255,0.5); color: rgba(255,255,255,0.8);
+      font-family: 'Cinzel', serif; font-size: 0.68rem; letter-spacing: 0.22em;
+      text-transform: uppercase; text-decoration: none; transition: all 0.3s;
+      display: flex; align-items: center; gap: 0.6rem;
+    }
+    .btn-outline-white:hover { background: rgba(255,255,255,0.1); color: var(--white); border-color: var(--white); }
+    .download-icon { font-size: 0.9rem; }
+
+    /* ── FOOTER ── */
+    footer { background: var(--charcoal); padding: 4rem 0 2.5rem; }
+    .footer-inner { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 4rem; margin-bottom: 3rem; }
+    .footer-logo { height: 44px; width: auto; margin-bottom: 1.2rem; display: block; }
+    .footer-tagline { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-style: italic; color: rgba(255,255,255,0.28); line-height: 1.7; }
+    .footer-col-title { font-family: 'Cinzel', serif; font-size: 0.6rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--rose); margin-bottom: 1.2rem; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; }
+    .footer-links a { font-size: 0.85rem; font-weight: 300; color: rgba(255,255,255,0.35); text-decoration: none; transition: color 0.3s; }
+    .footer-links a:hover { color: var(--blush); }
+    .footer-bottom { padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.07); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .footer-copy { font-size: 0.75rem; font-weight: 300; color: rgba(255,255,255,0.2); }
+    .footer-mark { font-family: 'Cormorant Garamond', serif; font-size: 0.9rem; font-style: italic; color: rgba(164,97,97,0.38); }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.8s ease, transform 0.8s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 960px) {
+      nav { padding: 1rem 1.5rem; }
+      .hero { grid-template-columns: 1fr; }
+      .hero-photo { height: 60vw; min-height: 280px; }
+      .hero-content { padding: 4rem 2rem 5rem; }
+      .what-grid, .footer-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .arc-grid { grid-template-columns: 1fr; }
+      .for-grid { grid-template-columns: 1fr; }
+      .details-grid { grid-template-columns: 1fr; }
+      .container { padding: 0 1.5rem; }
+      section { padding: 5rem 0; }
+      .hero-meta { flex-wrap: wrap; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="assets/apple-mark.png" alt="From The Core Coaching" />
+  </a>
+  <a href="index.html" class="nav-back">
+    <span class="nav-back-arrow">←</span> From The Core Coaching
+  </a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" style="padding:0;">
+  <div class="hero-photo">
+    <img class="hero-photo-img" src="assets/contact-portrait.jpg" alt="Jayme Alilaw" />
+  </div>
+  <div class="hero-content">
+    <img class="hero-watermark" src="assets/logo-lockup.png" alt="" aria-hidden="true" />
+    <div class="hero-soul-logo"><svg width="100%" viewBox="0 0 680 300" role="img" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <style>
+    .spoke { stroke: rgba(161,143,128,0.22); stroke-width: 0.6; fill: none; }
+    .spoke-accent { stroke: rgba(80,112,118,0.45); stroke-width: 0.8; fill: none; }
+    .triangle { fill: none; stroke: rgba(80,112,118,0.35); stroke-width: 0.7; }
+    .outer-tick { stroke: rgba(161,143,128,0.28); stroke-width: 0.8; fill: none; }
+    .ftcc { font-family: 'Cinzel', 'Palatino Linotype', serif; font-size: 7px; letter-spacing: 0.22em; fill: rgba(161,143,128,0.6); }
+  </style>
+</defs>
+
+<g transform="translate(140,148)">
+  <circle r="118" fill="#1c1414"/>
+  <circle r="118" fill="none" stroke="#a46161" stroke-width="1.4"/>
+  <g class="outer-tick">
+    <line x1="0" y1="-114" x2="0" y2="-108"/>
+    <line x1="57" y1="-99" x2="54" y2="-93"/>
+    <line x1="99" y1="-57" x2="93" y2="-54"/>
+    <line x1="114" y1="0" x2="108" y2="0"/>
+    <line x1="99" y1="57" x2="93" y2="54"/>
+    <line x1="57" y1="99" x2="54" y2="93"/>
+    <line x1="0" y1="114" x2="0" y2="108"/>
+    <line x1="-57" y1="99" x2="-54" y2="93"/>
+    <line x1="-99" y1="57" x2="-93" y2="54"/>
+    <line x1="-114" y1="0" x2="-108" y2="0"/>
+    <line x1="-99" y1="-57" x2="-93" y2="-54"/>
+    <line x1="-57" y1="-99" x2="-54" y2="-93"/>
+  </g>
+  <circle r="100" fill="none" stroke="#a46161" stroke-width="1.1"/>
+  <circle r="80" fill="none" stroke="rgba(80,112,118,0.2)" stroke-width="0.5"/>
+  <circle r="58" fill="none" stroke="rgba(164,97,97,0.1)" stroke-width="0.4"/>
+  <line x1="0" y1="-100" x2="0" y2="100" class="spoke"/>
+  <line x1="-100" y1="0" x2="100" y2="0" class="spoke"/>
+  <line x1="-71" y1="-71" x2="71" y2="71" class="spoke"/>
+  <line x1="71" y1="-71" x2="-71" y2="71" class="spoke"/>
+  <line x1="-38" y1="-92" x2="38" y2="92" class="spoke"/>
+  <line x1="38" y1="-92" x2="-38" y2="92" class="spoke"/>
+  <line x1="-92" y1="-38" x2="92" y2="38" class="spoke"/>
+  <line x1="92" y1="-38" x2="-92" y2="38" class="spoke"/>
+  <polygon points="0,-72  62,36  -62,36" class="triangle"/>
+  <line x1="-8" y1="-100" x2="8" y2="100" class="spoke-accent"/>
+  <polygon points="-103,0  -97,-4  -97,4" fill="#a46161"/>
+  <circle cx="0" cy="-118" r="2.5" fill="#a46161"/>
+  <circle cx="118" cy="0" r="2" fill="#507076"/>
+  <circle cx="0" cy="118" r="2.5" fill="#a46161"/>
+  <circle cx="-118" cy="0" r="2" fill="#507076"/>
+  <path d="M -28,-44 A 52,52 0 1,1 -28,44 A 30,30 0 1,0 -28,-44 Z" fill="rgba(164,97,97,0.14)"/>
+  <path d="M -28,-44 A 52,52 0 1,1 -28,44" fill="none" stroke="#a46161" stroke-width="1.3" stroke-linecap="round"/>
+  <path d="M -28,-44 A 30,30 0 1,0 -28,44" fill="none" stroke="rgba(164,97,97,0.4)" stroke-width="0.7" stroke-linecap="round"/>
+  <polygon points="0,-26  5,-5  26,0  5,5  0,26  -5,5  -26,0  -5,-5" fill="rgba(206,191,184,0.1)" stroke="rgba(206,191,184,0.35)" stroke-width="0.7"/>
+  <polygon points="0,-17  3,-3  17,0  3,3  0,17  -3,3  -17,0  -3,-3" fill="rgba(80,112,118,0.18)" stroke="#507076" stroke-width="0.85"/>
+  <circle r="4" fill="#a46161"/>
+  <circle r="2" fill="#cebfb8"/>
+  <text text-anchor="middle" x="0" y="132" class="ftcc">FROM THE CORE COACHING</text>
+</g>
+
+<line x1="284" y1="58" x2="284" y2="238" stroke="#507076" stroke-width="1.4"/>
+<text x="302" y="108" font-family="'Cinzel', 'Palatino Linotype', serif" font-size="24" letter-spacing="0.18em" fill="#ffffff">SOUL</text>
+<text x="302" y="146" font-family="'Cinzel', 'Palatino Linotype', serif" font-size="24" letter-spacing="0.18em" fill="#ffffff">CHART</text>
+<text x="302" y="184" font-family="'Cinzel', 'Palatino Linotype', serif" font-size="24" letter-spacing="0.18em" fill="#a46161">SESSION</text>
+<line x1="302" y1="192" x2="614" y2="192" stroke="#507076" stroke-width="0.9"/>
+<text x="302" y="212" font-family="'Jost', Arial, sans-serif" font-size="7.5" letter-spacing="0.22em" font-weight="300" fill="#888">Y O U R   S O V E R E I G N   B L U E P R I N T</text>
+<text x="302" y="232" font-family="'Jost', Arial, sans-serif" font-size="7" letter-spacing="0.18em" font-weight="300" fill="#aaa">A S T R O L O G Y   ·   C O A C H I N G   ·   T A R O T</text>
+</svg></div>
+    <span class="hero-eyebrow">Signature Offering</span>
+    <h1 class="hero-headline">Your sovereign<br /><em>blueprint awaits.</em></h1>
+    <p class="hero-sub">Stop guessing. Start moving in alignment with your actual design. A 90–120 minute private session where astrology leads, coaching contains, and tarot punctuates.</p>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <span class="hero-meta-value">90–120</span>
+        <span class="hero-meta-label">Minutes</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="hero-meta-value">$750</span>
+        <span class="hero-meta-label">Investment</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="hero-meta-value">Virtual</span>
+        <span class="hero-meta-label">or In-Person</span>
+      </div>
+    </div>
+    <a href="https://calendly.com/jaymealilaw/soul-chart-session" target="_blank" class="hero-cta">Book Your Session</a>
+  </div>
+</section>
+
+<!-- WHAT IT IS -->
+<section class="what" id="what">
+  <div class="container">
+    <span class="section-label reveal">What It Is</span>
+    <h2 class="section-title reveal">Three lenses.<br /><em>One sovereign map.</em></h2>
+    <div class="what-grid">
+      <div class="what-text reveal">
+        <p>A Soul Chart Session is a 90–120 minute private integrated experience that brings together three distinct lenses: executive coaching, astrology, and tarot. It is not a reading. It is not a therapy session. It is a high-clarity, action-oriented experience designed for leaders who are ready to stop guessing and start moving in alignment with their actual design.</p>
+        <p>Jayme opens with coaching to establish your clarity request — the question you most need answered. The birth chart then becomes a strategic map, revealing your patterns, your timing, and the design beneath your instincts. Tarot closes the session as intuitive confirmation, distilling the session's insights into a clear directive. You leave with a felt sense of your next right move.</p>
+      </div>
+      <div class="what-card reveal">
+        <span class="what-card-label">Your Sovereign Blueprint</span>
+        <div class="what-card-quote">"In two hours, you gave me clear marching orders on how to get things done in my life. This is for leaders — people who want to get things done and don't have time to waste."</div>
+        <span class="what-card-attr">— Gwendolyn Kuhlmann · Soul Chart Session Client</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SESSION ARC -->
+<section class="arc" id="arc">
+  <div class="container">
+    <span class="section-label reveal">The Session Arc</span>
+    <h2 class="section-title reveal">Five movements.<br /><em>One clear direction.</em></h2>
+    <div class="arc-grid">
+      <div class="arc-step reveal">
+        <div class="arc-num">01</div>
+        <span class="arc-name">Coaching Request</span>
+        <div class="arc-desc">Establish the clarity question. Surface what's underneath the surface question.</div>
+      </div>
+      <div class="arc-step reveal">
+        <div class="arc-num">02</div>
+        <span class="arc-name">Chart as Map</span>
+        <div class="arc-desc">Birth chart reading as a leadership and life map — patterns, timing, design.</div>
+      </div>
+      <div class="arc-step reveal">
+        <div class="arc-num">03</div>
+        <span class="arc-name">Emergent Awareness</span>
+        <div class="arc-desc">Coaching the insights that arise. Integration in real time.</div>
+      </div>
+      <div class="arc-step reveal">
+        <div class="arc-num">04</div>
+        <span class="arc-name">Tarot Confirmation</span>
+        <div class="arc-desc">Intuitive closure. One card or spread to distill and confirm the session's direction.</div>
+      </div>
+      <div class="arc-step reveal">
+        <div class="arc-num">05</div>
+        <span class="arc-name">Coached Completion</span>
+        <div class="arc-desc">Clear next steps. Marching orders. You leave knowing what to do.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO IT'S FOR -->
+<section class="for-section" id="who">
+  <div class="container">
+    <span class="section-label reveal">Who It's For</span>
+    <h2 class="section-title reveal">Built for leaders<br /><em>ready to move.</em></h2>
+    <div class="for-grid">
+      <div class="for-item reveal">
+        <strong>The Leader at a Crossroads</strong>
+        <p>You've outgrown the current container — role, relationship, path — and need clarity on what's next and whether the timing is right.</p>
+      </div>
+      <div class="for-item reveal">
+        <strong>The High Achiever Who's Stuck</strong>
+        <p>You're successful by every external measure and still feel like something essential is missing or misaligned.</p>
+      </div>
+      <div class="for-item reveal">
+        <strong>The Executive Ready to Lead Differently</strong>
+        <p>You're done performing your authority and ready to understand the deeper architecture of how you're actually designed to lead.</p>
+      </div>
+      <div class="for-item reveal">
+        <strong>The Creative or Entrepreneur in Transition</strong>
+        <p>You're building something new and want to move in alignment — with your design, your timing, and your deepest knowing.</p>
+      </div>
+    </div>
+    <div class="org-note-wrap reveal">
+      <div class="org-note">
+        <span class="org-note-icon">◈</span>
+        <div>
+          <span class="org-note-label">For Organizations</span>
+          <div class="org-note-text">Soul Chart Sessions are available for organizations interested in incorporating astrological insights into their leadership strategy, team development, or executive retreats. Custom engagements available. Contact Jayme directly to explore what's possible.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section class="testi-section">
+  <div class="container">
+    <span class="section-label reveal">Client Voice</span>
+    <h2 class="section-title reveal">What shifts<br /><em>when you're seen.</em></h2>
+    <div class="testi-card reveal">
+      <div class="testi-text">"In two hours, you told me how to stop wasting my time and energy and gave me clear marching orders on how to get things done in my life. It put so many things in focus. This is for leaders — people who want to get things done with their lives and don't have time to waste."</div>
+      <div class="testi-author">Gwendolyn Kuhlmann</div>
+      <div class="testi-role">Soul Chart Session Client</div>
+    </div>
+  </div>
+</section>
+
+<!-- DETAILS -->
+<section class="details">
+  <div class="container">
+    <span class="section-label reveal">Session Details</span>
+    <h2 class="section-title reveal">Everything you<br /><em>need to know.</em></h2>
+    <div class="details-grid reveal">
+      <div class="detail">
+        <span class="detail-label">Duration</span>
+        <div class="detail-value">90–120 Minutes</div>
+      </div>
+      <div class="detail">
+        <span class="detail-label">Format</span>
+        <div class="detail-value">Virtual or In-Person</div>
+      </div>
+      <div class="detail">
+        <span class="detail-label">Investment</span>
+        <div class="detail-value">$750</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="book">
+  <div class="container">
+    <span class="section-label">Ready?</span>
+    <h2 class="cta-title reveal">Your sovereign blueprint<br /><em>is already written.</em></h2>
+    <p class="cta-sub reveal">Stop guessing. Start moving in alignment with your actual design. Book your Soul Chart Session today.</p>
+    <div class="cta-buttons reveal">
+      <a href="https://calendly.com/jaymealilaw/soul-chart-session" target="_blank" class="btn-white">Book Your Session</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <img class="footer-logo" src="assets/footer-logo.png" alt="From The Core Coaching" />
+        <p class="footer-tagline">See clearly.<br />Speak truthfully.<br />Lead fully.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Navigate</div>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#offerings">Offerings</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">This Offering</div>
+        <ul class="footer-links">
+          <li><a href="#what">What It Is</a></li>
+          <li><a href="#arc">The Session Arc</a></li>
+          <li><a href="#who">Who It's For</a></li>
+          <li><a href="https://calendly.com/jaymealilaw/soul-chart-session" target="_blank">Book a Session</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 From The Core Coaching, LLC · Jayme Alilaw · fromthecorecoaching.com</span>
+      <span class="footer-mark">Where authenticity becomes leadership.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

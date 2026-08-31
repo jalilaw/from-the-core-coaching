@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jayme Alilaw — Speaker One-Sheet</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Cinzel:wght@400;500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --charcoal: #2d2d2d;
+  --rose: #a46161;
+  --blush: #cebfb8;
+  --teal: #507076;
+  --warm-white: #f8f8f8;
+  --white: #ffffff;
+  --text: #2d2d2d;
+  --text-light: #888;
+}
+
+@media print {
+  body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .no-print { display: none; }
+  .page { box-shadow: none; }
+  @page { size: letter; margin: 0; }
+}
+
+body { font-family: 'Jost', sans-serif; background: var(--warm-white); color: var(--text); font-size: 10.5px; line-height: 1.55; }
+@media screen { body { padding: 1rem 0; background: #e8e4df; } }
+@media print { body { background: white; padding: 0; } }
+
+.page { max-width: 850px; margin: 0 auto; background: var(--white); box-shadow: 0 4px 40px rgba(0,0,0,0.08); padding: 0.55in 0.6in; }
+@media print { .page { max-width: 100%; padding: 0.5in 0.55in; } }
+
+.header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.35in;
+  align-items: center;
+  padding-bottom: 0.22in;
+  border-bottom: 2px solid var(--teal);
+}
+.header h1 { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 34px; letter-spacing: 0.02em; color: var(--text); margin-bottom: 4px; }
+.header-eyebrow { font-family: 'Cinzel', serif; font-size: 9.5px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--rose); margin-bottom: 6px; }
+.header-tagline { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 14px; color: var(--teal); margin-bottom: 6px; }
+.header-contact { font-size: 9px; color: #777; letter-spacing: 0.02em; }
+.headshot { width: 1.15in; height: 1.4in; flex-shrink: 0; object-fit: cover; object-position: center top; display: block; }
+
+.body-grid { display: grid; grid-template-columns: 1.55fr 1fr; gap: 0.4in; margin-top: 0.2in; }
+
+.sec-label { font-family: 'Cinzel', serif; font-size: 9.5px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--rose); margin-bottom: 6px; }
+.about-text { font-size: 9.3px; line-height: 1.55; color: #444; margin-bottom: 14px; }
+
+.topics { display: flex; flex-direction: column; gap: 7px; }
+.topic-title { font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 11.5px; color: var(--text); }
+.topic-desc { font-size: 8.6px; line-height: 1.4; color: #777; }
+
+.side-block { margin-bottom: 14px; }
+.testi-card { background: var(--white); border: 1px solid rgba(161,143,128,0.3); padding: 10px 12px; margin-bottom: 8px; }
+.testi-quote { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 10.5px; line-height: 1.45; color: var(--text); margin-bottom: 6px; }
+.testi-attr { font-family: 'Cinzel', serif; font-size: 8px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--rose); }
+
+.cred-list { list-style: none; display: flex; flex-direction: column; gap: 4px; }
+.cred-list li { font-size: 9px; color: #444; display: flex; gap: 6px; }
+.cred-list li span { color: var(--rose); }
+
+.formats { display: flex; flex-direction: column; gap: 5px; }
+.format-row { display: flex; justify-content: space-between; font-size: 9px; color: #444; border-bottom: 1px solid rgba(161,143,128,0.2); padding-bottom: 4px; }
+.format-row:last-child { border-bottom: none; }
+.format-name { font-family: 'Cormorant Garamond', serif; font-weight: 500; color: var(--text); }
+.format-detail { color: #777; }
+
+.orgs-served { margin-top: 0.18in; padding-top: 0.16in; border-top: 1px solid rgba(80,112,118,0.35); }
+.orgs-served-label { font-family: 'Cinzel', serif; font-size: 8.5px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--teal); margin-bottom: 5px; }
+.orgs-served-list { font-size: 9px; color: #666; line-height: 1.6; }
+
+.book-bar { margin-top: 0.16in; background: var(--charcoal); padding: 10px 16px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 6px; }
+.book-bar-label { font-family: 'Cinzel', serif; font-size: 9.5px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--white); }
+.book-bar-contact { font-size: 9px; color: rgba(255,255,255,0.65); }
+
+.print-btn { display: block; margin: 1.5rem auto; padding: 0.7rem 2rem; background: transparent; border: 1px solid rgba(161,143,128,0.4); color: var(--text-light); font-family: 'Cinzel', serif; font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; cursor: pointer; transition: all 0.3s; }
+.print-btn:hover { border-color: var(--rose); color: var(--rose); }
+@media print { .print-btn { display: none; } }
+
+@media (max-width: 700px) {
+  .header { grid-template-columns: 1fr; }
+  .body-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="page">
+  <div class="header">
+    <div>
+      <h1>Jayme Alilaw</h1>
+      <div class="header-eyebrow">Executive Coach · Keynote Speaker · Vocal Artist</div>
+      <div class="header-tagline">See clearly. Speak truthfully. Lead fully.</div>
+      <div class="header-contact">coaching@jayme-alilaw.com &nbsp;·&nbsp; FromTheCoreCoaching.com &nbsp;·&nbsp; calendly.com/jaymealilaw/chemistry-session</div>
+    </div>
+    <img class="headshot" src="assets/hero-portrait.jpg" alt="Jayme Alilaw">
+  </div>
+
+  <div class="body-grid">
+    <div>
+      <div class="sec-label">About Jayme</div>
+      <p class="about-text">Jayme Alilaw is an executive coach, keynote speaker, and classically trained opera singer whose work sits at the intersection of authentic leadership, embodied voice, and human transformation. As the founder of From The Core Coaching, she works with executives, emerging leaders, and high-achieving professionals who are ready to stop leading as someone else and step fully into who they are. Her proprietary Resonant Voice™ framework — built on 20+ years as a performer, Army veteran, and certified coach — gives clients the tools to see clearly, speak truthfully, and lead fully. Jayme has partnered with organizations ranging from Lincoln Center and the Doris Duke Foundation to Kaiser Permanente, Wells Fargo, and Sandy Hook Promise.</p>
+
+      <div class="sec-label">Signature Keynotes &amp; Workshop Topics</div>
+      <div class="topics">
+        <div>
+          <div class="topic-title">The Performance Tax: What It Costs to Lead as Someone Else</div>
+          <div class="topic-desc">The hidden toll of code-switching and masking — and what becomes possible when you stop paying it.</div>
+        </div>
+        <div>
+          <div class="topic-title">The Resonant Voice™: Authentic Leadership Through Embodied Presence</div>
+          <div class="topic-desc">Authentic, Empowered, and Embodied Voice — the framework for leadership that moves rooms.</div>
+        </div>
+        <div>
+          <div class="topic-title">Speak From the Core: Communication as a Leadership Instrument</div>
+          <div class="topic-desc">Using literal and figurative voice as a strategic leadership tool.</div>
+        </div>
+        <div>
+          <div class="topic-title">Soft Skills Are a Lie: The Case for Feminine Leadership Energy</div>
+          <div class="topic-desc">Reframing so-called soft skills as high-leverage, strategic leadership qualities.</div>
+        </div>
+        <div>
+          <div class="topic-title">See Clearly. Speak Truthfully. Lead Fully. — A Leadership Retreat Arc</div>
+          <div class="topic-desc">A half- or full-day arc through reflection, voice work, and embodied leadership practice.</div>
+        </div>
+        <div>
+          <div class="topic-title">The Coherence Formula: Aligning Who You Are with How You Lead</div>
+          <div class="topic-desc">Closing the gap between internal identity and external leadership — how alignment creates influence.</div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="side-block">
+        <div class="sec-label">What They Say</div>
+        <div class="testi-card">
+          <p class="testi-quote">"Jayme has a rare ability to see clearly into what's holding you back and name it with such warmth that you feel seen, not exposed."</p>
+          <div class="testi-attr">— Jasmine Jackson</div>
+        </div>
+        <div class="testi-card" style="margin-bottom:0;">
+          <p class="testi-quote">"She doesn't just coach you — she activates you. I left every session knowing exactly who I was and what I needed to do."</p>
+          <div class="testi-attr">— Anna Larsen</div>
+        </div>
+      </div>
+
+      <div class="side-block">
+        <div class="sec-label">Credentials</div>
+        <ul class="cred-list">
+          <li><span>◆</span>ICF-Credentialed Coach (PCC, in progress)</li>
+          <li><span>◆</span>20+ Years Classical Opera &amp; Vocal Performance</li>
+          <li><span>◆</span>Atlanta Opera Resident Artist Alumni</li>
+          <li><span>◆</span>U.S. Army Veteran</li>
+          <li><span>◆</span>B.A., California State University Northridge</li>
+          <li><span>◆</span>Founder, From The Core Coaching</li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="sec-label">Available Formats</div>
+        <div class="formats">
+          <div class="format-row"><span class="format-name">Keynote</span><span class="format-detail">30–90 min · in-person or virtual</span></div>
+          <div class="format-row"><span class="format-name">Workshop</span><span class="format-detail">Half/full-day · interactive</span></div>
+          <div class="format-row"><span class="format-name">Retreat</span><span class="format-detail">Full-day · up to 30</span></div>
+          <div class="format-row"><span class="format-name">Panel</span><span class="format-detail">Roundtables &amp; facilitation</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="orgs-served">
+    <div class="orgs-served-label">Organizations Served</div>
+    <div class="orgs-served-list">Lincoln Center · Atlanta Opera · Doris Duke Foundation · Kaiser Permanente · Wells Fargo · Sandy Hook Promise · Chicago Commons · Good Inside · Kennesaw State University · OPERA America · Black Opera Alliance · Georgia Ensemble Theatre · Charlotte Is Creative</div>
+  </div>
+
+  <div class="book-bar">
+    <span class="book-bar-label">Book Jayme</span>
+    <span class="book-bar-contact">coaching@jayme-alilaw.com &nbsp;·&nbsp; calendly.com/jaymealilaw/chemistry-session &nbsp;·&nbsp; FromTheCoreCoaching.com</span>
+  </div>
+</div>
+
+<button class="print-btn no-print" onclick="window.print()">Download / Print One Sheet</button>
+
+</body>
+</html>
