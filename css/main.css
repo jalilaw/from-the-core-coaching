@@ -158,7 +158,7 @@
   pointer-events: none;
 }
 
-.hero-copy > * { position: relative; opacity: 0; animation: fadeUp 0.9s forwards; }
+.hero-copy > *:not(.hero-watermark) { position: relative; opacity: 0; animation: fadeUp 0.9s forwards; }
 .hero-eyebrow { font-family: var(--font-label); font-size: 0.65rem; letter-spacing: 0.32em; text-transform: uppercase; color: var(--rose); margin-bottom: 1.8rem; animation-delay: 0.2s; }
 .hero-h1 { font-family: var(--font-display); font-size: clamp(2.6rem, 4vw, 4.2rem); font-weight: 300; line-height: 1.1; color: var(--white); margin: 0 0 1.8rem; animation-delay: 0.4s; }
 .hero-h1 em { font-style: italic; color: var(--blush); }
