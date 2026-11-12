@@ -7,3 +7,16 @@
     X-Frame-Options = "DENY"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
+
+# Soul Chart Sessions moved to jayme-alilaw.com (Nov 2026)
+[[redirects]]
+  from = "/soul-chart-session"
+  to = "https://jayme-alilaw.com/soul-chart"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/soul-chart-session.html"
+  to = "https://jayme-alilaw.com/soul-chart"
+  status = 301
+  force = true
